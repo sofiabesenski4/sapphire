@@ -1,5 +1,16 @@
+require "pry"
+require "./lib/router"
 class Application
-  def call(env)
-    ['200', {'Content-Type' => 'text/html'}, ["Hello Rack!"]]
+  def initialize
+    @router= Router.new
   end
+
+  def call(env)
+    router.call(env)
+
+  end
+
+  private
+  attr_reader :router
+
 end
