@@ -17,19 +17,20 @@ class Router
       Response.new(content: "Not found", status: 404)
     end
   end
+
   # hello/sitesearch
   def matching?(route)
     return false if @incoming_req.verb != route.verb
 
-#TODO get the query params!!!
-    inc_path_chunks = @incoming_req.path.split('/')
-    path_chunks = route.path.split('/')
+    # TODO get the query params!!!
+    inc_path_chunks = @incoming_req.path.split("/")
+    path_chunks = route.path.split("/")
     return false if inc_path_chunks.length != path_chunks.length
 
-    inc_path_chunks.zip(path_chunks).map{ |inc_chunk,route_chunk| chunk_match?(inc_chunk, route_chunk) }
+    inc_path_chunks.zip(path_chunks).map { |inc_chunk, route_chunk| chunk_match?(inc_chunk, route_chunk) }
   end
 
-  def chunk_match? (inc_chunk, route_chunk)
+  def chunk_match?(inc_chunk, route_chunk)
     if route_chunk.start_with?(":")
       add_param(inc_chunk, route_chunk[1..-1])
       return true
@@ -38,8 +39,8 @@ class Router
     inc_chunk == route_chunk
   end
 
-  def add_param (param_value, param_key)
-    @incoming_req.params[param_key.to_sym]=param_value
+  def add_param(param_value, param_key)
+    @incoming_req.params[param_key.to_sym] = param_value
   end
 
   def get(arg, &block)
