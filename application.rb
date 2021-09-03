@@ -6,12 +6,11 @@ class Application
   end
 
   def call(env)
-    response= router.call(env)
+    response = router.call(env)
     [response.status, {"Content-Type" => "text/html"}, [response.content]]
   end
 
   private
 
   attr_reader :router
-
 end
