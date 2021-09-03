@@ -1,6 +1,6 @@
-require "./lib/router"
+require "./lib/sapphire/router"
 require "pry"
-RSpec.describe Router do
+RSpec.describe Sapphire::Router do
   describe("#call") do
     let(:router) { described_class.new }
     let(:env) { {"REQUEST_METHOD" => "GET", "REQUEST_PATH" => "/users/sofia/element/2"} }

@@ -1,7 +1,7 @@
-require "./lib/router"
+require "./lib/sapphire/router"
 class Routes
   def self.call
-    Router.new
+    Sapphire::Router.new
       .get("/first_route") do
       "<h1>first</h1>"
     end
