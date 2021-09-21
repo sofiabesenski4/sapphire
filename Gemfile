@@ -12,3 +12,4 @@ gem "rspec", "~> 3.10"
 gem "pry", "~> 0.14.1"
 
 gem "standardrb", "~> 1.0"
+gem "pg"

@@ -1,10 +1,10 @@
 {
   "db":
     {
-      "host": "test",
-      "db_name": "test_db",
-      "username": "test_user",
-      "password": "test_pass",
-      "port": 123
+      "host": "localhost",
+      "dbname": "test_db",
+      "user": "sofiabesenski",
+      "password": "",
+      "port": 5432
     }
 }
